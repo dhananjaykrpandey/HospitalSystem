@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HospitalSystem.ProjectFiles
+namespace HospitalSystem
 {
-    public partial class DoctorHome : System.Web.UI.Page
+    public partial class Doctors: System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DoctorHome.aspx.cs" Inherits="HospitalSystem.ProjectFiles.DoctorHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Logon.aspx.cs" Inherits="HospitalSystem.Logon" %>
 
 <!DOCTYPE html>
 
@@ -9,6 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Login ID="Login1" runat="server">
+            </asp:Login>
         </div>
     </form>
 </body>

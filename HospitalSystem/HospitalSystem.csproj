@@ -74,28 +74,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\animate.min.css" />
     <Content Include="App_Data\HospitalSystem.mdf" />
     <Content Include="App_Data\HospitalSystem_log.ldf">
       <DependentUpon>HospitalSystem.mdf</DependentUpon>
     </Content>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="HospitalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HospitalModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Login.aspx" />
-    <Content Include="ProjectFiles\DoctorHome.aspx" />
-    <Content Include="ProjectFiles\PatientHome.aspx" />
+    <Content Include="Logon.aspx" />
+    <Content Include="css\main.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.transitions.css" />
     <Content Include="Web.config" />
+    <Content Include="Patient\PatientMessages.aspx" />
+    <Content Include="Patient\PatientAppointments.aspx" />
+    <Content Include="Patient\PatientMedications.aspx" />
+    <Content Include="Patient\PatientHome.aspx" />
+    <Content Include="Doctor\DoctorAppointments.aspx" />
+    <Content Include="Doctor\DoctorMessages.aspx" />
+    <Content Include="Doctor\DoctorHome.aspx" />
+    <Content Include="Doctor\DoctorMedications.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProjectFiles\DoctorHome.aspx.cs">
-      <DependentUpon>DoctorHome.aspx</DependentUpon>
+    <Compile Include="Doctors.Master.cs">
+      <DependentUpon>Doctors.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProjectFiles\DoctorHome.aspx.designer.cs">
-      <DependentUpon>DoctorHome.aspx</DependentUpon>
+    <Compile Include="Doctors.Master.designer.cs">
+      <DependentUpon>Doctors.Master</DependentUpon>
     </Compile>
-    <Compile Include="ProjectFiles\HospitalSystem.cs" />
+    <Compile Include="Patients.Master.cs">
+      <DependentUpon>Patients.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patients.Master.designer.cs">
+      <DependentUpon>Patients.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Logon.aspx.cs">
+      <DependentUpon>Logon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logon.aspx.designer.cs">
+      <DependentUpon>Logon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalSystem.cs" />
     <Compile Include="HospitalModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,21 +133,63 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HospitalModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectFiles\PatientHome.aspx.cs">
-      <DependentUpon>PatientHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProjectFiles\PatientHome.aspx.designer.cs">
-      <DependentUpon>PatientHome.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Patient\PatientMessages.aspx.cs">
+      <DependentUpon>PatientMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientMessages.aspx.designer.cs">
+      <DependentUpon>PatientMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientAppointments.aspx.cs">
+      <DependentUpon>PatientAppointments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientAppointments.aspx.designer.cs">
+      <DependentUpon>PatientAppointments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientMedications.aspx.cs">
+      <DependentUpon>PatientMedications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientMedications.aspx.designer.cs">
+      <DependentUpon>PatientMedications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientHome.aspx.cs">
+      <DependentUpon>PatientHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientHome.aspx.designer.cs">
+      <DependentUpon>PatientHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorAppointments.aspx.cs">
+      <DependentUpon>DoctorAppointments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorAppointments.aspx.designer.cs">
+      <DependentUpon>DoctorAppointments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorMessages.aspx.cs">
+      <DependentUpon>DoctorMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorMessages.aspx.designer.cs">
+      <DependentUpon>DoctorMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.designer.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorMedications.aspx.cs">
+      <DependentUpon>DoctorMedications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorMedications.aspx.designer.cs">
+      <DependentUpon>DoctorMedications.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="HospitalModel.edmx">
@@ -130,8 +199,12 @@
     <Content Include="HospitalModel.edmx.diagram">
       <DependentUpon>HospitalModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Patients.Master" />
+    <Content Include="css\main.less" />
+    <Content Include="Doctors.Master" />
+    <Content Include="Doctor\Web.config" />
     <None Include="packages.config" />
-    <Content Include="ProjectFiles\Web.config" />
+    <Content Include="Patient\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
