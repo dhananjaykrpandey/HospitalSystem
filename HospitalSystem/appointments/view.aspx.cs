@@ -17,7 +17,7 @@ namespace HospitalSystem.appointments
 
             foreach(Appointment appointment in appointments)
             {
-                ListBox1.Items.Add(appointment.ToString());
+                ListBoxAppointments.Items.Add(appointment.ToString());
             }
         }
 
@@ -26,7 +26,7 @@ namespace HospitalSystem.appointments
          * 
          * @returns True if current logged in person is a doctor
          */
-        private bool isDoctorLoggedIn()
+        protected bool isDoctorLoggedIn()
         {
             return false;
         }
@@ -36,7 +36,7 @@ namespace HospitalSystem.appointments
          * 
          * @returns True if current logged in person is a patient
          */
-        private bool isPatientLoggedIn()
+        protected bool isPatientLoggedIn()
         {
             return false;
         }
@@ -46,7 +46,7 @@ namespace HospitalSystem.appointments
          * 
          * @return name of logged in individual
          */
-        private string getName()
+        protected string getName()
         {
             return "Joe Smith";
         }

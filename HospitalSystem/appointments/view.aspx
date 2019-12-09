@@ -2,10 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>
+    <h2>
         <br />
-        View Appointments</p>
+        View Appointments</h2>
     <p>
-        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+        <asp:ListBox ID="ListBoxAppointments" runat="server"></asp:ListBox>
+    </p>
+    <p>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/appointment.aspx">Back to Appointment Management</asp:HyperLink>
     </p>
 </asp:Content>
