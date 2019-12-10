@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HospitalSystem.appointments {
+namespace HospitalSystem.XDoctors.Appointments {
     
     
     public partial class add {

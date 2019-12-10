@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HospitalSystem.appointments {
+namespace HospitalSystem.XPatients.Appointments {
     
     
     public partial class view {

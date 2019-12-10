@@ -74,10 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="appointment.aspx" />
-    <Content Include="appointment\add.aspx" />
-    <Content Include="appointment\delete.aspx" />
-    <Content Include="appointment\view.aspx" />
     <Content Include="css\animate.min.css" />
     <Content Include="App_Data\HospitalSystem.mdf" />
     <Content Include="App_Data\HospitalSystem_log.ldf">
@@ -86,7 +82,9 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
-    <Content Include="doctor.aspx" />
+    <Content Include="Doctor\Appointment\Add.aspx" />
+    <Content Include="Doctor\Appointment\Delete.aspx" />
+    <Content Include="Doctor\Appointment\View.aspx" />
     <Content Include="HospitalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HospitalModel.Context.cs</LastGenOutput>
@@ -95,6 +93,9 @@
     <Content Include="css\main.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\owl.transitions.css" />
+    <Content Include="Patient\Appointment\Add.aspx" />
+    <Content Include="Patient\Appointment\Delete.aspx" />
+    <Content Include="Patient\Appointment\View.aspx" />
     <Content Include="res\doctors.jpng.jpg" />
     <Content Include="Web.config" />
     <Content Include="Patient\PatientMessages.aspx" />
@@ -107,49 +108,35 @@
     <Content Include="Doctor\DoctorMedications.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="appointment.aspx.cs">
-      <DependentUpon>appointment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="appointment.aspx.designer.cs">
-      <DependentUpon>appointment.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Appointment.cs" />
     <Compile Include="AppointmentManager.cs" />
-    <Compile Include="appointment\add.aspx.cs">
-      <DependentUpon>add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="appointment\add.aspx.designer.cs">
-      <DependentUpon>add.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="appointment\delete.aspx.cs">
-      <DependentUpon>delete.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="appointment\delete.aspx.designer.cs">
-      <DependentUpon>delete.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="appointment\view.aspx.cs">
-      <DependentUpon>view.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="appointment\view.aspx.designer.cs">
-      <DependentUpon>view.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="doctor.aspx.cs">
-      <DependentUpon>doctor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="doctor.aspx.designer.cs">
-      <DependentUpon>doctor.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Doctors.Master.cs">
       <DependentUpon>Doctors.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Doctors.Master.designer.cs">
       <DependentUpon>Doctors.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Appointment\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Appointment\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Appointment\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Appointment\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Appointment\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Appointment\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patients.Master.cs">
       <DependentUpon>Patients.Master</DependentUpon>
@@ -175,6 +162,27 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HospitalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Appointment\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Appointment\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Appointment\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Appointment\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Appointment\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Appointment\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Patient\PatientMessages.aspx.cs">

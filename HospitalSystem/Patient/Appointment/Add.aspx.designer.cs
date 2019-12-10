@@ -7,28 +7,46 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HospitalSystem.appointments {
+namespace HospitalSystem.XPatients.Appointments {
     
     
-    public partial class delete {
+    public partial class add {
         
         /// <summary>
-        /// ListBoxAppointments control.
+        /// LabelDesiredAppointee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBoxAppointments;
+        protected global::System.Web.UI.WebControls.Label LabelDesiredAppointee;
         
         /// <summary>
-        /// ButtonDeleteAppointment control.
+        /// CalendarAppointmentDateSelector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDeleteAppointment;
+        protected global::System.Web.UI.WebControls.Calendar CalendarAppointmentDateSelector;
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// ButtonAddAppointment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAddAppointment;
         
         /// <summary>
         /// HyperLink1 control.
