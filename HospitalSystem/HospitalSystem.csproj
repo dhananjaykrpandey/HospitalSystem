@@ -114,7 +114,6 @@
     <Compile Include="appointment.aspx.designer.cs">
       <DependentUpon>appointment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Appointment.cs" />
     <Compile Include="AppointmentManager.cs" />
     <Compile Include="appointment\add.aspx.cs">
       <DependentUpon>add.aspx</DependentUpon>
