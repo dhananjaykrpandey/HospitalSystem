@@ -5,36 +5,36 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HospitalSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Appoinments">
+        <EntityType Name="Appointments">
           <Key>
             <PropertyRef Name="AppointmentID" />
           </Key>
           <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PatientID" Type="int" Nullable="false" />
           <Property Name="DoctorID" Type="int" Nullable="false" />
-          <Property Name="Purpose" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Purpose" Type="nchar" MaxLength="64" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Time" Type="datetime" Nullable="false" />
-          <Property Name="VisitSummary" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="VisitSummary" Type="nchar" MaxLength="64" Nullable="false" />
         </EntityType>
         <EntityType Name="Doctors">
           <Key>
             <PropertyRef Name="DoctorID" />
           </Key>
           <Property Name="DoctorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="LastName" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Location" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Department" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="UserLoginName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="LastName" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="Location" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="Department" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="UserLoginName" Type="nchar" MaxLength="24" Nullable="false" />
         </EntityType>
         <EntityType Name="MedicationList">
           <Key>
             <PropertyRef Name="MedicationID" />
           </Key>
           <Property Name="MedicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="24" Nullable="false" />
           <Property Name="PatientID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Messages">
@@ -53,12 +53,12 @@
           </Key>
           <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DoctorID" Type="int" Nullable="false" />
-          <Property Name="FirstName" Type="int" Nullable="false" />
-          <Property Name="LastName" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Address" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Phone" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="nchar" MaxLength="10" />
-          <Property Name="UserLoginName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="LastName" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="Address" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="Phone" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="24" />
+          <Property Name="UserLoginName" Type="nchar" MaxLength="24" Nullable="false" />
           <Property Name="MedicationID" Type="int" />
           <Property Name="TestID" Type="int" />
         </EntityType>
@@ -68,7 +68,7 @@
           </Key>
           <Property Name="TestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PatientID" Type="int" Nullable="false" />
-          <Property Name="TestResults" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="TestResults" Type="nchar" MaxLength="64" Nullable="false" />
           <Property Name="TestDate" Type="date" Nullable="false" />
           <Property Name="DoctorID" Type="int" Nullable="false" />
         </EntityType>
@@ -80,37 +80,37 @@ warning 6002: The table/view 'C:\USERS\MITCHELL KNOX\SOURCE\REPOS\HOSPITALSYSTEM
             <PropertyRef Name="UserLoginPass" />
             <PropertyRef Name="UserLoginType" />
           </Key>
-          <Property Name="UserLoginName" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="UserLoginPass" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="UserLoginType" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserLoginName" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="UserLoginPass" Type="nchar" MaxLength="24" Nullable="false" />
+          <Property Name="UserLoginType" Type="nchar" MaxLength="24" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Appoinmen__Docto__5BE2A6F2">
+        <Association Name="FK__Appointme__Docto__03F0984C">
           <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
-          <End Role="Appoinments" Type="Self.Appoinments" Multiplicity="*" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Doctors">
               <PropertyRef Name="DoctorID" />
             </Principal>
-            <Dependent Role="Appoinments">
+            <Dependent Role="Appointments">
               <PropertyRef Name="DoctorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Appoinmen__Patie__5AEE82B9">
+        <Association Name="FK__Appointme__Patie__02FC7413">
           <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
-          <End Role="Appoinments" Type="Self.Appoinments" Multiplicity="*" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Patients">
               <PropertyRef Name="PatientID" />
             </Principal>
-            <Dependent Role="Appoinments">
+            <Dependent Role="Appointments">
               <PropertyRef Name="PatientID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Doctors__UserLog__5EBF139D' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Doctors__UserLog__5EBF139D" />-->
+warning 6035: The relationship 'FK__Doctors__UserLog__6EF57B66' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Doctors__UserLog__6EF57B66" />-->
         <Association Name="FK__Medicatio__Patie__656C112C">
           <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
           <End Role="MedicationList" Type="Self.MedicationList" Multiplicity="*" />
@@ -160,8 +160,8 @@ warning 6035: The relationship 'FK__Doctors__UserLog__5EBF139D' has columns that
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Patients__UserLo__628FA481" />-->
+warning 6035: The relationship 'FK__Patients__UserLo__6FE99F9F' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Patients__UserLo__6FE99F9F" />-->
         <Association Name="FK__Tests__DoctorID__60A75C0F">
           <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
           <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
@@ -187,7 +187,7 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HospitalSystemModelStoreContainer">
-          <EntitySet Name="Appoinments" EntityType="Self.Appoinments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MedicationList" EntityType="Self.MedicationList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
@@ -200,13 +200,13 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
     [Users].[UserLoginType] AS [UserLoginType]
     FROM [dbo].[Users] AS [Users]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Appoinmen__Docto__5BE2A6F2" Association="Self.FK__Appoinmen__Docto__5BE2A6F2">
+          <AssociationSet Name="FK__Appointme__Docto__03F0984C" Association="Self.FK__Appointme__Docto__03F0984C">
             <End Role="Doctors" EntitySet="Doctors" />
-            <End Role="Appoinments" EntitySet="Appoinments" />
+            <End Role="Appointments" EntitySet="Appointments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Appoinmen__Patie__5AEE82B9" Association="Self.FK__Appoinmen__Patie__5AEE82B9">
+          <AssociationSet Name="FK__Appointme__Patie__02FC7413" Association="Self.FK__Appointme__Patie__02FC7413">
             <End Role="Patients" EntitySet="Patients" />
-            <End Role="Appoinments" EntitySet="Appoinments" />
+            <End Role="Appointments" EntitySet="Appointments" />
           </AssociationSet>
           <AssociationSet Name="FK__Medicatio__Patie__656C112C" Association="Self.FK__Medicatio__Patie__656C112C">
             <End Role="Patients" EntitySet="Patients" />
@@ -237,41 +237,27 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HospitalSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Appoinment">
-          <Key>
-            <PropertyRef Name="AppointmentID" />
-          </Key>
-          <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PatientID" Type="Int32" Nullable="false" />
-          <Property Name="DoctorID" Type="Int32" Nullable="false" />
-          <Property Name="Purpose" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="VisitSummary" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Doctor" Relationship="Self.FK__Appoinmen__Docto__5BE2A6F2" FromRole="Appoinments" ToRole="Doctors" />
-          <NavigationProperty Name="Patient" Relationship="Self.FK__Appoinmen__Patie__5AEE82B9" FromRole="Appoinments" ToRole="Patients" />
-        </EntityType>
         <EntityType Name="Doctor">
           <Key>
             <PropertyRef Name="DoctorID" />
           </Key>
           <Property Name="DoctorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Location" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Department" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="UserLoginName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Appoinments" Relationship="Self.FK__Appoinmen__Docto__5BE2A6F2" FromRole="Doctors" ToRole="Appoinments" />
+          <Property Name="FirstName" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UserLoginName" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Patients" Relationship="Self.FK__Patients__Doctor__619B8048" FromRole="Doctors" ToRole="Patients" />
           <NavigationProperty Name="Tests" Relationship="Self.FK__Tests__DoctorID__60A75C0F" FromRole="Doctors" ToRole="Tests" />
+          <NavigationProperty Name="Appointments" Relationship="HospitalSystemModel.FK__Appointme__Docto__03F0984C" FromRole="Doctor" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="MedicationList">
           <Key>
             <PropertyRef Name="MedicationID" />
           </Key>
           <Property Name="MedicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PatientID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Patient" Relationship="Self.FK__Medicatio__Patie__656C112C" FromRole="MedicationList" ToRole="Patients" />
           <NavigationProperty Name="Patients" Relationship="Self.FK__Patients__Medica__6383C8BA" FromRole="MedicationList" ToRole="Patients" />
@@ -292,20 +278,20 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
           </Key>
           <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DoctorID" Type="Int32" Nullable="false" />
-          <Property Name="FirstName" Type="Int32" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="UserLoginName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+          <Property Name="UserLoginName" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="MedicationID" Type="Int32" />
           <Property Name="TestID" Type="Int32" />
-          <NavigationProperty Name="Appoinments" Relationship="Self.FK__Appoinmen__Patie__5AEE82B9" FromRole="Patients" ToRole="Appoinments" />
           <NavigationProperty Name="Doctor" Relationship="Self.FK__Patients__Doctor__619B8048" FromRole="Patients" ToRole="Doctors" />
           <NavigationProperty Name="MedicationLists" Relationship="Self.FK__Medicatio__Patie__656C112C" FromRole="Patients" ToRole="MedicationList" />
           <NavigationProperty Name="MedicationList" Relationship="Self.FK__Patients__Medica__6383C8BA" FromRole="Patients" ToRole="MedicationList" />
           <NavigationProperty Name="Test" Relationship="Self.FK__Patients__TestID__6477ECF3" FromRole="Patients" ToRole="Tests" />
           <NavigationProperty Name="Tests" Relationship="Self.FK__Tests__PatientID__5FB337D6" FromRole="Patients" ToRole="Tests" />
+          <NavigationProperty Name="Appointments" Relationship="HospitalSystemModel.FK__Appointme__Patie__02FC7413" FromRole="Patient" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Test">
           <Key>
@@ -313,7 +299,7 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
           </Key>
           <Property Name="TestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PatientID" Type="Int32" Nullable="false" />
-          <Property Name="TestResults" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TestResults" Type="String" MaxLength="64" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DoctorID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Doctor" Relationship="Self.FK__Tests__DoctorID__60A75C0F" FromRole="Tests" ToRole="Doctors" />
@@ -326,34 +312,10 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
             <PropertyRef Name="UserLoginPass" />
             <PropertyRef Name="UserLoginType" />
           </Key>
-          <Property Name="UserLoginName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="UserLoginPass" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="UserLoginType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UserLoginName" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UserLoginPass" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UserLoginType" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Appoinmen__Docto__5BE2A6F2">
-          <End Role="Doctors" Type="Self.Doctor" Multiplicity="1" />
-          <End Role="Appoinments" Type="Self.Appoinment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Doctors">
-              <PropertyRef Name="DoctorID" />
-            </Principal>
-            <Dependent Role="Appoinments">
-              <PropertyRef Name="DoctorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Appoinmen__Patie__5AEE82B9">
-          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
-          <End Role="Appoinments" Type="Self.Appoinment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="PatientID" />
-            </Principal>
-            <Dependent Role="Appoinments">
-              <PropertyRef Name="PatientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Patients__Doctor__619B8048">
           <End Role="Doctors" Type="Self.Doctor" Multiplicity="1" />
           <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
@@ -427,21 +389,12 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HospitalSystemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Appoinments" EntityType="Self.Appoinment" />
           <EntitySet Name="Doctors" EntityType="Self.Doctor" />
           <EntitySet Name="MedicationLists" EntityType="Self.MedicationList" />
           <EntitySet Name="Messages" EntityType="Self.Message" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="Tests" EntityType="Self.Test" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__Appoinmen__Docto__5BE2A6F2" Association="Self.FK__Appoinmen__Docto__5BE2A6F2">
-            <End Role="Doctors" EntitySet="Doctors" />
-            <End Role="Appoinments" EntitySet="Appoinments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Appoinmen__Patie__5AEE82B9" Association="Self.FK__Appoinmen__Patie__5AEE82B9">
-            <End Role="Patients" EntitySet="Patients" />
-            <End Role="Appoinments" EntitySet="Appoinments" />
-          </AssociationSet>
           <AssociationSet Name="FK__Patients__Doctor__619B8048" Association="Self.FK__Patients__Doctor__619B8048">
             <End Role="Doctors" EntitySet="Doctors" />
             <End Role="Patients" EntitySet="Patients" />
@@ -466,26 +419,60 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
             <End Role="Patients" EntitySet="Patients" />
             <End Role="Tests" EntitySet="Tests" />
           </AssociationSet>
+          <EntitySet Name="Appointments" EntityType="HospitalSystemModel.Appointment" />
+          <AssociationSet Name="FK__Appointme__Docto__03F0984C" Association="HospitalSystemModel.FK__Appointme__Docto__03F0984C">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Patie__02FC7413" Association="HospitalSystemModel.FK__Appointme__Patie__02FC7413">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="DoctorID" Type="Int32" Nullable="false" />
+          <Property Name="Purpose" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VisitSummary" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Doctor" Relationship="HospitalSystemModel.FK__Appointme__Docto__03F0984C" FromRole="Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="HospitalSystemModel.FK__Appointme__Patie__02FC7413" FromRole="Appointment" ToRole="Patient" />
+        </EntityType>
+        <Association Name="FK__Appointme__Docto__03F0984C">
+          <End Type="HospitalSystemModel.Doctor" Role="Doctor" Multiplicity="1" />
+          <End Type="HospitalSystemModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DoctorID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Patie__02FC7413">
+          <End Type="HospitalSystemModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HospitalSystemModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HospitalSystemModelStoreContainer" CdmEntityContainer="HospitalSystemEntities">
-          <EntitySetMapping Name="Appoinments">
-            <EntityTypeMapping TypeName="HospitalSystemModel.Appoinment">
-              <MappingFragment StoreEntitySet="Appoinments">
-                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
-                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
-                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
-                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="VisitSummary" ColumnName="VisitSummary" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Doctors">
             <EntityTypeMapping TypeName="HospitalSystemModel.Doctor">
               <MappingFragment StoreEntitySet="Doctors">
@@ -552,6 +539,19 @@ warning 6035: The relationship 'FK__Patients__UserLo__628FA481' has columns that
                 <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
                 <ScalarProperty Name="UserLoginPass" ColumnName="UserLoginPass" />
                 <ScalarProperty Name="UserLoginType" ColumnName="UserLoginType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="HospitalSystemModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointments">
+                <ScalarProperty Name="VisitSummary" ColumnName="VisitSummary" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
