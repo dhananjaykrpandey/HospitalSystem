@@ -20,6 +20,8 @@ namespace HospitalSystem
 
             int doctorID = getDoctorID();
 
+            AppointmentManager.GetDoctorID("x", "y");
+
             List<Appointment> appointments = AppointmentManager.GetDoctorAppointments(doctorID);
 
             if(appointments.Count < 1)

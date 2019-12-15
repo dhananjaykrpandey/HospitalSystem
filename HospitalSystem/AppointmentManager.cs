@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace HospitalSystem
 {
@@ -16,13 +17,27 @@ namespace HospitalSystem
          */
         public static Appointment GetAppointmentByID(int appointmentID)
         {
-            return new Appointment(
-                "department", 
-                "patient name", 
-                "doctor name", 
-                new DateTime(), 
-                "purpose"
-            );
+
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            HospitalSystem.Appointment appointment = (from appt in entities.Appointments where appt.AppointmentID == appointmentID select appt).First();
+
+            return appointment;
+        }
+
+        public static Appointment GetAppointmentID(AppointmentInfo appointment)
+        {
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            List<HospitalSystem.Appointment> matches = (
+                from appt in entities.Appointments
+                where
+                    appt.DoctorID == appointment.DoctorID && 
+                    appt.PatientID == appointment.PatientID &&
+                    appt.Time == appointment.TimeSlot
+                select appt).ToList();
+
+            return matches.First();
         }
 
         /**
@@ -34,9 +49,16 @@ namespace HospitalSystem
          * @returns true if there is a slot open at that time with that
          *  doctor, otherwise false
          */
-        public static bool IsAppointmentAvailable(Appointment appointment)
+        public static bool IsAppointmentAvailable(AppointmentInfo appointment)
         {
-            return false;
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            List<HospitalSystem.Appointment> appointments =
+                (from appt in entities.Appointments
+                where (appt.DoctorID == appointment.DoctorID) && (appt.Time != appointment.TimeSlot)
+                select appt).ToList();
+
+            return appointments.Count == 0;
         }
 
         /**
@@ -47,8 +69,23 @@ namespace HospitalSystem
          *  information
          * @returns true on success, false on failure
          */
-        public static bool CreateAppointment(Appointment appointment)
+        public static bool CreateAppointment(AppointmentInfo appointment)
         {
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            Appointment appt = new Appointment(
+                appointment.PatientID,
+                appointment.DoctorID, 
+                appointment.Purpose, 
+                appointment.TimeSlot,
+                appointment.TimeSlot, 
+                ""
+            );
+
+            entities.Appointments.Add(appt);
+
+            entities.SaveChanges();
+
             return true;
         }
 
@@ -60,8 +97,17 @@ namespace HospitalSystem
          *  of the appointment that is desired to be deleted
          * @returns true on success, false on failure
          */
-        public static bool DeleteAppointment(Appointment appointment)
+        public static bool DeleteAppointment(int appointmentID)
         {
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            List<Appointment> matched = (from appt in entities.Appointments where appt.AppointmentID == appointmentID select appt).ToList();
+
+            if (matched.Count < 1) return false;
+
+            entities.Appointments.Remove(matched.First());
+            entities.SaveChanges();
+
             return true;
         }
 
@@ -75,7 +121,14 @@ namespace HospitalSystem
          */
         public static List<Appointment> GetPatientAppointments(int patientID)
         {
-            return new List<Appointment>();
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            return (
+                from appt in entities.Appointments
+                where
+                    appt.PatientID == patientID
+                select appt
+            ).ToList();
         }
 
         /**
@@ -86,9 +139,50 @@ namespace HospitalSystem
          * @returns List of Appointment objects representing the scheduled 
          *  appointments of the given doctor
          */
-        public static List<Appointment> GetDoctorAppointments(int doctorID)
+        public static List<HospitalSystem.Appointment> GetDoctorAppointments(int doctorID)
         {
-            return new List<Appointment>();
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            return (
+                from appt in entities.Appointments
+                where
+                    appt.DoctorID == doctorID
+                select appt
+            ).ToList<HospitalSystem.Appointment>();
+        }
+
+        public static int GetPatientID(string firstName, string lastName)
+        {
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            List<Patient> patients = (
+                from patient in entities.Patients
+                where
+                    patient.First_Name == firstName &&
+                    patient.Last_Name == lastName
+                select patient
+            ).ToList();
+
+            if (patients.Count < 1) return 0;
+
+            return patients.First().PatientID;
+        }
+
+        public static int GetDoctorID(string firstName, string lastName)
+        {
+            HospitalSystemEntities entities = new HospitalSystemEntities();
+
+            List<Doctor> doctors = (
+                from doctor in entities.Doctors
+                where
+                    doctor.First_Name == firstName &&
+                    doctor.Last_Name == lastName
+                select doctor
+            ).ToList();
+
+            if (doctors.Count < 1) return 0;
+
+            return doctors.First().DoctorID;
         }
     }
 }

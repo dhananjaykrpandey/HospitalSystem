@@ -4,68 +4,28 @@ namespace HospitalSystem
 {
     public class Appointment
     {
-        private string department, patient, doctor, purpose;
-        private DateTime timeslot;
-
-        public Appointment(string department, string patient,
-            string doctor, DateTime timeslot, string purpose)
+        public int AppointmentID { get; }
+        public int PatientID { get; set; }
+        public int DoctorID { get; set; }
+        public String Purpose { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime Time { get; set; }
+        public String VisitSummary { get; set; }
+        
+        public Appointment(int patientID, int doctorID, String purpose, DateTime date, DateTime time, String visitSummary)
         {
-            this.department = department;
-            this.patient = patient;
-            this.doctor = doctor;
-            this.timeslot = timeslot;
-            this.purpose = purpose;
-        }
-
-        public string Department
-        {
-            get
-            {
-                return department;
-            }
-        }
-
-        public string Patient
-        {
-            get
-            {
-                return patient;
-            }
-        }
-
-        public string Doctor
-        {
-            get
-            {
-                return doctor;
-            }
-        }
-
-        public DateTime TimeSlot
-        {
-            get
-            {
-                return timeslot;
-            }
-        }
-
-        public override string ToString()
-        {
-            return String.Format(
-                "For {0}, with {1} in department {2}, at {3}",
-                patient,
-                doctor,
-                department,
-                timeslot
-            );
+            PatientID = patientID;
+            DoctorID = doctorID;
+            Purpose = purpose;
+            Date = date;
+            Time = time;
+            VisitSummary = visitSummary;
         }
     }
-
     public abstract class Person
     {
-        private
-            string First_Name { get; set; }
-            string Last_Name { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
 
         public Person(string firstname, string lastname)
         {
@@ -75,7 +35,7 @@ namespace HospitalSystem
     }
     public class Doctor : Person
     {
-        private
+        public
             int DoctorID { get; }
             String Location { get; set; }
             string Email { get; set; }
@@ -123,7 +83,7 @@ namespace HospitalSystem
     }
     public class Patient : Person
     {
-        private
+        public
             int PatientID { get; }
             Doctor DoctorID { get; set; }
             string Address { get; set; }

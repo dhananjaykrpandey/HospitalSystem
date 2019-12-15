@@ -9,16 +9,7 @@ namespace HospitalSystem.XDoctors.Appointments
 {
     public partial class add : System.Web.UI.Page
     {
-        private class Patient {
-            public string getName()
-            {
-                return "patient name";
-            }
-            public override string ToString()
-            {
-                return "patient";
-            }
-        }
+
         private List<Patient> getPatients()
         {
             return new List<Patient>();
@@ -43,9 +34,9 @@ namespace HospitalSystem.XDoctors.Appointments
             }
         }
 
-        private string getDoctorName()
+        private Tuple<string, string> getDoctorName()
         {
-            return "mr. doctor";
+            return new Tuple<string, string>("mr", "doctor");
         }
 
         private DateTime getRequestedAppointmentTime()
@@ -68,11 +59,11 @@ namespace HospitalSystem.XDoctors.Appointments
             
             Patient patient = patients[ListBoxPatients.GetSelectedIndices()[0]];
             DateTime date = getRequestedAppointmentTime();
-            
-            Appointment appointment = new Appointment(
+
+            AppointmentInfo appointment = new AppointmentInfo(
                 TextBoxDepartment.Text, 
-                patient.getName(), 
-                getDoctorName(), 
+                patient.PatientID, 
+                AppointmentManager.GetDoctorID(getDoctorName().Item1, getDoctorName().Item2), 
                 date,
                 TextBoxPurpose.Text
             );

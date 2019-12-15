@@ -24,7 +24,7 @@ namespace HospitalSystem
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<MedicationList> MedicationLists { get; set; }
         public virtual DbSet<Message> Messages { get; set; }

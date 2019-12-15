@@ -7,7 +7,7 @@
       <Diagram DiagramId="417da901281141cbb0e08c5872fcb09d" Name="Diagram1">
         <EntityTypeShape EntityType="HospitalSystemModel.Doctor" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalSystemModel.MedicationList" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalSystemModel.Message" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalSystemModel.v" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalSystemModel.Patient" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalSystemModel.Test" Width="1.5" PointX="8.25" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalSystemModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />

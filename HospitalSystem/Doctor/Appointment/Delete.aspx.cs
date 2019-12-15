@@ -33,7 +33,7 @@ namespace HospitalSystem.XDoctors.Appointments
 
             Appointment selectedAppointment = appointments[ListBoxAppointments.SelectedIndex];
 
-            if(AppointmentManager.DeleteAppointment(selectedAppointment))
+            if(AppointmentManager.DeleteAppointment(selectedAppointment.AppointmentID))
             {
                 LabelDeleteStatus.Text = "The selected appointment has been cancelled.";
             } else
