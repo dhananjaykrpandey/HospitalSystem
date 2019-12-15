@@ -18,7 +18,7 @@ namespace HospitalSystem
         public static Appointment GetAppointmentByID(int appointmentID)
         {
 
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             HospitalSystem.Appointment appointment = (from appt in entities.Appointments where appt.AppointmentID == appointmentID select appt).First();
 
@@ -27,7 +27,7 @@ namespace HospitalSystem
 
         public static Appointment GetAppointmentID(AppointmentInfo appointment)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             List<HospitalSystem.Appointment> matches = (
                 from appt in entities.Appointments
@@ -51,7 +51,7 @@ namespace HospitalSystem
          */
         public static bool IsAppointmentAvailable(AppointmentInfo appointment)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             List<HospitalSystem.Appointment> appointments =
                 (from appt in entities.Appointments
@@ -71,16 +71,15 @@ namespace HospitalSystem
          */
         public static bool CreateAppointment(AppointmentInfo appointment)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
-
-            Appointment appt = new Appointment(
-                appointment.PatientID,
-                appointment.DoctorID, 
-                appointment.Purpose, 
-                appointment.TimeSlot,
-                appointment.TimeSlot, 
-                ""
-            );
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
+            
+            Appointment appt = new Appointment();
+            appt.Date = appointment.TimeSlot;
+            appt.Time = appointment.TimeSlot;
+            appt.PatientID = appointment.PatientID;
+            appt.DoctorID = appointment.DoctorID;
+            appt.Purpose = appointment.Purpose;
+            appt.VisitSummary = "";
 
             entities.Appointments.Add(appt);
 
@@ -99,7 +98,7 @@ namespace HospitalSystem
          */
         public static bool DeleteAppointment(int appointmentID)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             List<Appointment> matched = (from appt in entities.Appointments where appt.AppointmentID == appointmentID select appt).ToList();
 
@@ -121,7 +120,7 @@ namespace HospitalSystem
          */
         public static List<Appointment> GetPatientAppointments(int patientID)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             return (
                 from appt in entities.Appointments
@@ -139,27 +138,27 @@ namespace HospitalSystem
          * @returns List of Appointment objects representing the scheduled 
          *  appointments of the given doctor
          */
-        public static List<HospitalSystem.Appointment> GetDoctorAppointments(int doctorID)
+        public static List<Appointment> GetDoctorAppointments(int doctorID)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             return (
                 from appt in entities.Appointments
                 where
                     appt.DoctorID == doctorID
                 select appt
-            ).ToList<HospitalSystem.Appointment>();
+            ).ToList<Appointment>();
         }
 
         public static int GetPatientID(string firstName, string lastName)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             List<Patient> patients = (
                 from patient in entities.Patients
                 where
-                    patient.First_Name == firstName &&
-                    patient.Last_Name == lastName
+                    patient.FirstName == firstName &&
+                    patient.LastName == lastName
                 select patient
             ).ToList();
 
@@ -170,13 +169,13 @@ namespace HospitalSystem
 
         public static int GetDoctorID(string firstName, string lastName)
         {
-            HospitalSystemEntities entities = new HospitalSystemEntities();
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             List<Doctor> doctors = (
                 from doctor in entities.Doctors
                 where
-                    doctor.First_Name == firstName &&
-                    doctor.Last_Name == lastName
+                    doctor.FirstName == firstName &&
+                    doctor.LastName == lastName
                 select doctor
             ).ToList();
 

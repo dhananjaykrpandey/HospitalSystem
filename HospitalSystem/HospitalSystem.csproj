@@ -51,6 +51,8 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -93,6 +95,16 @@
     <Content Include="css\main.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\owl.transitions.css" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Patient\Appointment\Add.aspx" />
     <Content Include="Patient\Appointment\Delete.aspx" />
     <Content Include="Patient\Appointment\View.aspx" />
@@ -108,8 +120,14 @@
     <Content Include="Doctor\DoctorMedications.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppointmentInfo.cs" />
     <Compile Include="AppointmentManager.cs" />
+    <Compile Include="Doctor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Doctors.Master.cs">
       <DependentUpon>Doctors.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,6 +156,30 @@
     <Compile Include="Doctor\Appointment\View.aspx.designer.cs">
       <DependentUpon>View.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MedicationList.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Patients.Master.cs">
       <DependentUpon>Patients.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -157,11 +199,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HospitalModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HospitalModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HospitalModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Patient\Appointment\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
@@ -241,19 +278,25 @@
     <Compile Include="Doctor\DoctorMedications.aspx.designer.cs">
       <DependentUpon>DoctorMedications.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Test.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="HospitalModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HospitalModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="HospitalModel.edmx.diagram">
-      <DependentUpon>HospitalModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Patients.Master" />
     <Content Include="css\main.less" />
     <Content Include="Doctors.Master" />
     <Content Include="Doctor\Web.config" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Patient\Web.config" />
     <None Include="Web.Debug.config">
