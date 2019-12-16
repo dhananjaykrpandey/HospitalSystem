@@ -22,7 +22,7 @@ namespace HospitalSystem.XDoctors.Appointments
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelPatientSelected.Text = "" + DropDownListPatients.SelectedIndex;
+            if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
 
             DropDownListPatients.Items.Clear();
 
@@ -43,15 +43,9 @@ namespace HospitalSystem.XDoctors.Appointments
             }
         }
 
-        private Tuple<string, string> getDoctorName()
+        private int getDoctorID()
         {
-            //string fullname = Session["UserLoginName"].ToString();
-            string fullname = "Maya Moore";
-
-            string first = fullname.Split(' ')[0];
-            string last = fullname.Split(' ')[1];
-
-            return new Tuple<string, string>(first, last);
+            return AppointmentManager.GetDoctorByUserName(Session["user"].ToString()).DoctorID;
         }
 
         private DateTime getRequestedAppointmentTime()
@@ -62,8 +56,8 @@ namespace HospitalSystem.XDoctors.Appointments
             int minute = Convert.ToInt32(DropDownListTimeMinute.SelectedValue);
 
             DateTime date = CalendarAppointmentDateSelector.SelectedDate;
-            date = date.AddHours(hour);
-            date = date.AddMinutes(minute);
+            TimeSpan ts = new TimeSpan(hour, minute, 0);
+            date = date + ts;
 
             return date;
         }
@@ -78,8 +72,8 @@ namespace HospitalSystem.XDoctors.Appointments
 
             AppointmentInfo appointment = new AppointmentInfo(
                 TextBoxDepartment.Text, 
-                patient.PatientID, 
-                AppointmentManager.GetDoctorID(getDoctorName().Item1, getDoctorName().Item2),
+                patient.PatientID,
+                getDoctorID(),
                 date,
                 TextBoxPurpose.Text
             );

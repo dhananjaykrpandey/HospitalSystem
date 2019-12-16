@@ -11,6 +11,8 @@ namespace HospitalSystem.XPatients.Appointments
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
+
             int patientID = 0;
 
             List<Appointment> appointments = AppointmentManager.GetPatientAppointments(patientID);
