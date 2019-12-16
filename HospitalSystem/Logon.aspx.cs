@@ -17,10 +17,18 @@ namespace HospitalSystem
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            if (Login1.UserName == "mknoxP" && Login1.Password == "testpass")
-            {
-                FormsAuthentication.RedirectFromLoginPage(Login1.UserName, true);
-            }
+
+           //HospitalSystemEntities dbcontext = new HospitalSystemEntities();
+
+            ///var user = (from userdata in dbcontext.Users
+             //           where userdata.UserLoginName.Equals(Login1.UserName)
+             //           where userdata.UserLoginPass.Equals(Login1.Password)
+             //           select userdata).First;
+
+            //if (true)
+            //{
+            //    FormsAuthentication.RedirectFromLoginPage(Login1.UserName, true);
+            //}
         }
     }
 }
