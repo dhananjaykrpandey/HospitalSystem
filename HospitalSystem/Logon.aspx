@@ -12,6 +12,7 @@
             <asp:Login ID="Login1" runat="server">
             </asp:Login>
         </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     </form>
 </body>
 </html>
