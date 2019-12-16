@@ -10,8 +10,17 @@ namespace HospitalSystem
     public partial class WebForm8 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {        
+            HospitalSystemEntities dbcontext = new HospitalSystemEntities();
 
+            var medications = from data in dbcontext.MedicationLists
+                              where data.PatientID.Equals(1)
+                              select data;
+
+            foreach (MedicationList med in medications)
+            {
+                ListBox1.Items.Add(med.ToString());
+            }
         }
     }
 }
