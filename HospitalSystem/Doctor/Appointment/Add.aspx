@@ -4,22 +4,17 @@
         <br />
         Add Appointment</h2>
     <p>
-        Patient:</p>
+        Date:</p>
     <p>
-        <asp:DropDownList ID="DropDownListPatients" runat="server">
-        </asp:DropDownList>
+        <asp:Calendar ID="CalendarAppointmentDateSelector" runat="server"></asp:Calendar>
     </p>
     <p>
-        <asp:Label ID="LabelPatientSelected" runat="server" Text="Please select a patient."></asp:Label>
+        Patient: <asp:DropDownList ID="DropDownListPatients" runat="server">
+        </asp:DropDownList>
     </p>
     <p>
         Department:
         <asp:TextBox ID="TextBoxDepartment" runat="server"></asp:TextBox>
-    </p>
-    <p>
-        Date:</p>
-    <p>
-        <asp:Calendar ID="CalendarAppointmentDateSelector" runat="server"></asp:Calendar>
     </p>
     <p>
         Time:</p>

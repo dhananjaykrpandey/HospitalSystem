@@ -55,7 +55,7 @@ namespace HospitalSystem
 
             List<HospitalSystem.Appointment> appointments =
                 (from appt in entities.Appointments
-                where (appt.DoctorID == appointment.DoctorID) && (appt.Time != appointment.TimeSlot)
+                where (appt.DoctorID == appointment.DoctorID) && (appt.Time == appointment.TimeSlot)
                 select appt).ToList();
 
             return appointments.Count == 0;
@@ -196,6 +196,26 @@ namespace HospitalSystem
             HospitalSystemEntities1 entities = new HospitalSystemEntities1();
 
             return entities.Doctors.ToList();
+        }
+
+        public static Doctor GetDoctorByUserName(string username)
+        {
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
+
+            return (from doctor in entities.Doctors
+                    where
+                        doctor.UserLoginName == username
+                    select doctor).First();
+        }
+
+        public static Patient GetPatientByUserName(string username)
+        {
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
+
+            return (from patient in entities.Patients
+                    where
+                        patient.UserLoginName == username
+                    select patient).First();
         }
     }
 }

@@ -11,11 +11,13 @@ namespace HospitalSystem
     {
         private int getDoctorID()
         {
-            return 1;
+            return AppointmentManager.GetDoctorByUserName(Session["user"].ToString()).DoctorID;   
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
+
             ListBoxAppointments.Items.Clear();
 
             int doctorID = getDoctorID();
@@ -30,7 +32,7 @@ namespace HospitalSystem
 
             foreach (Appointment appointment in appointments)
             {
-                ListBoxAppointments.Items.Add(appointment.ToString());
+                ListBoxAppointments.Items.Add(appointment.Date + " with " + appointment.Patient.FirstName + " " + appointment.Patient.LastName);
             }
         }
     }

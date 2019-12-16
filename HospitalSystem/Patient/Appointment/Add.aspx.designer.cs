@@ -13,15 +13,6 @@ namespace HospitalSystem.XPatients.Appointments {
     public partial class add {
         
         /// <summary>
-        /// LabelDesiredAppointee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelDesiredAppointee;
-        
-        /// <summary>
         /// CalendarAppointmentDateSelector control.
         /// </summary>
         /// <remarks>
@@ -31,13 +22,67 @@ namespace HospitalSystem.XPatients.Appointments {
         protected global::System.Web.UI.WebControls.Calendar CalendarAppointmentDateSelector;
         
         /// <summary>
-        /// TextBox1 control.
+        /// DropDownListPatients control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListPatients;
+        
+        /// <summary>
+        /// TextBoxDepartment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDepartment;
+        
+        /// <summary>
+        /// DropDownListTimeHour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTimeHour;
+        
+        /// <summary>
+        /// DropDownListTimeMinute control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTimeMinute;
+        
+        /// <summary>
+        /// DropDownListTimeHemi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTimeHemi;
+        
+        /// <summary>
+        /// TextBoxPurpose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPurpose;
+        
+        /// <summary>
+        /// LabelAddStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAddStatus;
         
         /// <summary>
         /// ButtonAddAppointment control.
