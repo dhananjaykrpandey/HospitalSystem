@@ -14,7 +14,7 @@ namespace HospitalSystem
             HospitalSystemEntities dbcontext = new HospitalSystemEntities();
 
             var medications = from data in dbcontext.MedicationLists
-                              where data.PatientID = 1
+                              where data.PatientID.Equals(1)
                               select data;
 
             foreach (MedicationList med in medications)
