@@ -40,9 +40,11 @@ namespace HospitalSystem
             List<Message> messages = getMessages();
 
             ListBoxMessages.Items.Clear();
+            DropDownListMessages.Items.Clear();
             if (messages.Count < 1)
             {
                 ListBoxMessages.Items.Add("You have no messages.");
+                DropDownListMessages.Items.Add("You have no messages.");
             }
             else
             {
@@ -51,8 +53,14 @@ namespace HospitalSystem
                     ListBoxMessages.Items.Add(
                         message.MessageFROM + ": " + message.Message1
                     );
+                    DropDownListMessages.Items.Add(
+                        message.MessageFROM + ": " + message.Message1
+                    );
                 }
             }
+
+            ListBoxMessages.DataBind();
+            DropDownListMessages.DataBind();
 
             DropDownListPatient.Items.Clear();
             if (doctors.Count < 1)
@@ -102,6 +110,46 @@ namespace HospitalSystem
             {
                 LabelSentStatus.Text = "There was an error sending your message, please try again later.";
             }
+        }
+
+        protected void ButtonDeleteMessage_Click(object sender, EventArgs e)
+        {
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
+            List<Message> messages = getMessages();
+
+            Message selected = messages[DropDownListMessages.SelectedIndex];
+
+            entities.Messages.Attach(selected);
+            entities.Messages.Remove(selected);
+            entities.SaveChanges();
+
+            ListBoxMessages.Items.Clear();
+            DropDownListMessages.Items.Clear();
+            if (messages.Count < 1)
+            {
+                ListBoxMessages.Items.Add("You have no messages.");
+                DropDownListMessages.Items.Add("You have no messages.");
+            }
+            else
+            {
+                foreach (Message message in messages)
+                {
+                    ListBoxMessages.Items.Add(
+                        message.MessageFROM + ": " + message.Message1
+                    );
+                    DropDownListMessages.Items.Add(
+                        message.MessageFROM + ": " + message.Message1
+                    );
+                }
+            }
+
+            ListBoxMessages.DataBind();
+            DropDownListMessages.DataBind();
+        }
+
+        protected void DropDownListPatient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

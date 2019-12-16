@@ -12,8 +12,8 @@
     <p>
         Send Message:</p>
     <p>
-        Patient:
-        <asp:DropDownList ID="DropDownListPatient" runat="server">
+        Doctor:
+        <asp:DropDownList ID="DropDownListPatient" runat="server" OnSelectedIndexChanged="DropDownListPatient_SelectedIndexChanged">
         </asp:DropDownList>
     </p>
     <p>
@@ -23,6 +23,16 @@
     </p>
     <p>
         <asp:Button ID="ButtonSendMessage" runat="server" OnClick="ButtonSendMessage_Click" Text="Send Message" />
+    </p>
+    <p>
+        <asp:DropDownList ID="DropDownListMessages" runat="server">
+        </asp:DropDownList>
+    </p>
+    <p>
+        <asp:Button ID="ButtonDeleteMessage" runat="server" OnClick="ButtonDeleteMessage_Click" Text="Delete Selected Message" />
+    </p>
+    <p>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/PatientHome.aspx">Return to patient home</asp:HyperLink>
     </p>
 
 </asp:Content>
