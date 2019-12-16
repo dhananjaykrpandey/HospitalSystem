@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HospitalSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HospitalSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Appointments">
           <Key>
             <PropertyRef Name="AppointmentID" />
@@ -42,10 +42,10 @@
             <PropertyRef Name="MessagesID" />
           </Key>
           <Property Name="MessagesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MessageTO" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="MessageFROM" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MessageTO" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="MessageFROM" Type="nchar" MaxLength="100" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="Message" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Message" Type="char" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Patients">
           <Key>
@@ -233,8 +233,7 @@ warning 6035: The relationship 'FK__Patients__UserLo__6FE99F9F' has columns that
             <End Role="Tests" EntitySet="Tests" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HospitalSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -282,10 +281,10 @@ warning 6035: The relationship 'FK__Patients__UserLo__6FE99F9F' has columns that
             <PropertyRef Name="MessagesID" />
           </Key>
           <Property Name="MessagesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MessageTO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="MessageFROM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MessageTO" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MessageFROM" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Message1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Message1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
