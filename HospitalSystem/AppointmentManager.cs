@@ -183,5 +183,19 @@ namespace HospitalSystem
 
             return doctors.First().DoctorID;
         }
+
+        public static List<Patient> GetPatients()
+        {
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
+
+            return entities.Patients.ToList();
+        }
+
+        public static List<Doctor> GetDoctors()
+        {
+            HospitalSystemEntities1 entities = new HospitalSystemEntities1();
+
+            return entities.Doctors.ToList();
+        }
     }
 }

@@ -4,7 +4,8 @@
         <br />
         Cancel Appointment</h2>
     <p>
-        <asp:ListBox ID="ListBoxAppointments" runat="server"></asp:ListBox>
+        <asp:DropDownList ID="DropDownListAppointments" runat="server">
+        </asp:DropDownList>
     </p>
     <p>
         <asp:Label ID="LabelDeleteStatus" runat="server"></asp:Label>

@@ -12,26 +12,26 @@ namespace HospitalSystem.XDoctors.Appointments
 
         private int getDoctorID()
         {
-            return 0;
+            return 1;
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListBoxAppointments.Items.Clear();
+            DropDownListAppointments.Items.Clear();
 
-            List<Appointment> appointments = AppointmentManager.GetPatientAppointments(getDoctorID());
+            List<Appointment> appointments = AppointmentManager.GetDoctorAppointments(getDoctorID());
 
             foreach (Appointment appointment in appointments)
             {
-                ListBoxAppointments.Items.Add(appointment.ToString());
+                DropDownListAppointments.Items.Add(appointment.Date + " with " + appointment.Patient.FirstName + " " + appointment.Patient.LastName);
             }
         }
 
         protected void ButtonDeleteAppointment_Click(object sender, EventArgs e)
         {
-            List<Appointment> appointments = AppointmentManager.GetPatientAppointments(getDoctorID());
+            List<Appointment> appointments = AppointmentManager.GetDoctorAppointments(getDoctorID());
 
-            Appointment selectedAppointment = appointments[ListBoxAppointments.SelectedIndex];
+            Appointment selectedAppointment = appointments[DropDownListAppointments.SelectedIndex];
 
             if(AppointmentManager.DeleteAppointment(selectedAppointment.AppointmentID))
             {

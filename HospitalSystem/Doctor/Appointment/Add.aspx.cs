@@ -12,31 +12,46 @@ namespace HospitalSystem.XDoctors.Appointments
 
         private List<Patient> getPatients()
         {
-            return new List<Patient>();
+            return AppointmentManager.GetPatients();
+        }
+
+        private string patientToString(Patient patient)
+        {
+            return "" + patient.PatientID + " : " + patient.FirstName + " " + patient.LastName;
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListBoxPatients.Items.Clear();
+            LabelPatientSelected.Text = "" + DropDownListPatients.SelectedIndex;
+
+            DropDownListPatients.Items.Clear();
 
             List<Patient> patients = getPatients();
 
             if(patients.Count < 1)
             {
-                ListBoxPatients.Items.Clear();
-                ListBoxPatients.Items.Add("There are no patients in our records.");
+                DropDownListPatients.Items.Clear();
+                DropDownListPatients.Items.Add("There are no patients in our records.");
                 return;
             }
 
             foreach(Patient patient in patients)
             {
-                ListBoxPatients.Items.Add(patient.ToString());
+                DropDownListPatients.Items.Add(
+                    patientToString(patient)
+                );
             }
         }
 
         private Tuple<string, string> getDoctorName()
         {
-            return new Tuple<string, string>("mr", "doctor");
+            //string fullname = Session["UserLoginName"].ToString();
+            string fullname = "Maya Moore";
+
+            string first = fullname.Split(' ')[0];
+            string last = fullname.Split(' ')[1];
+
+            return new Tuple<string, string>(first, last);
         }
 
         private DateTime getRequestedAppointmentTime()
@@ -56,14 +71,15 @@ namespace HospitalSystem.XDoctors.Appointments
         protected void ButtonAddAppointment_Click(object sender, EventArgs e)
         {
             List<Patient> patients = getPatients();
-            
-            Patient patient = patients[ListBoxPatients.GetSelectedIndices()[0]];
+
+            Patient patient = patients[DropDownListPatients.SelectedIndex];
+
             DateTime date = getRequestedAppointmentTime();
 
             AppointmentInfo appointment = new AppointmentInfo(
                 TextBoxDepartment.Text, 
                 patient.PatientID, 
-                AppointmentManager.GetDoctorID(getDoctorName().Item1, getDoctorName().Item2), 
+                AppointmentManager.GetDoctorID(getDoctorName().Item1, getDoctorName().Item2),
                 date,
                 TextBoxPurpose.Text
             );

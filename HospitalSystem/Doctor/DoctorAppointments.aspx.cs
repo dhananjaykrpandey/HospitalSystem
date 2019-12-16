@@ -11,7 +11,7 @@ namespace HospitalSystem
     {
         private int getDoctorID()
         {
-            return 0;
+            return 1;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -19,8 +19,6 @@ namespace HospitalSystem
             ListBoxAppointments.Items.Clear();
 
             int doctorID = getDoctorID();
-
-            AppointmentManager.GetDoctorID("x", "y");
 
             List<Appointment> appointments = AppointmentManager.GetDoctorAppointments(doctorID);
 

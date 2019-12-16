@@ -6,7 +6,11 @@
     <p>
         Patient:</p>
     <p>
-        <asp:ListBox ID="ListBoxPatients" runat="server"></asp:ListBox>
+        <asp:DropDownList ID="DropDownListPatients" runat="server">
+        </asp:DropDownList>
+    </p>
+    <p>
+        <asp:Label ID="LabelPatientSelected" runat="server" Text="Please select a patient."></asp:Label>
     </p>
     <p>
         Department:
