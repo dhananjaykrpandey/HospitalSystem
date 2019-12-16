@@ -16,46 +16,58 @@ namespace HospitalSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            ListBox1.Items.Clear();
+            Doctor doc = AppointmentManager.GetDoctorByUserName(Session["user"].ToString());
+       
             HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
-            var patients = from data in dbcontext.Patients
-                             where data.DoctorID.Equals("$$$")
-                             select data;
+            var patients = (from data in dbcontext.Patients
+                             where data.DoctorID.Equals(doc.DoctorID)
+                             select data).ToList();
 
             foreach (Patient patient in patients)
             {
-                ListBox1.Items.Add(patient.ToString());
+                ListBox1.Items.Add("ID: " + patient.PatientID + " ,First Name:" + patient.FirstName + " ,Last Name:" + patient.LastName + " ,Email:" + patient.Email
+                    + " ,Phone: " + patient.Phone + " ,Meds:" + patient.MedicationList.Description + " ,Test Results: " + patient.TestID);
             }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            ListBox1.Items.Clear();
+            Doctor doc = AppointmentManager.GetDoctorByUserName(Session["user"].ToString());
+
             HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
-            var patients = from data in dbcontext.Patients
-                           where data.DoctorID.Equals("$$$")
-                           where data.PatientID.Equals(TextBox1)
-                           select data;
+            var patients = (from data in dbcontext.Patients
+                           where data.DoctorID.Equals(doc.DoctorID)
+                           where data.PatientID.ToString().Equals(TextBox1.Text)
+                           select data).ToList();
 
             foreach (Patient patient in patients)
             {
-                ListBox1.Items.Add(patient.ToString());
+                ListBox1.Items.Add("ID: " + patient.PatientID + " ,First Name:" + patient.FirstName + " ,Last Name:" + patient.LastName + " ,Email:" + patient.Email
+                    + " ,Phone: " + patient.Phone + " ,Meds:" + patient.MedicationList.Description + " ,Test Results: " + patient.TestID);
             }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+            ListBox1.Items.Clear();
+            Doctor doc = AppointmentManager.GetDoctorByUserName(Session["user"].ToString());
+
             HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
-            var patients = from data in dbcontext.Patients
-                           where data.DoctorID.Equals("$$$") &&
+            var patients = (from data in dbcontext.Patients
+                           where data.DoctorID.Equals(doc.DoctorID) &&
                            data.FirstName.Equals(TextBox2.Text) &&
                            data.LastName.Equals(TextBox3.Text)
-                           select data;
+                           select data).ToList();
 
             foreach (Patient patient in patients)
             {
-                ListBox1.Items.Add(patient.ToString());
+                ListBox1.Items.Add("ID: " + patient.PatientID + " ,First Name:" + patient.FirstName + " ,Last Name:" + patient.LastName + " ,Email:" + patient.Email
+                    + " ,Phone: " + patient.Phone + " ,Meds:" + patient.MedicationList.Description + " ,Test Results: " + patient.TestID);
             }
         }
     }

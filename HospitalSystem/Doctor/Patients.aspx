@@ -18,7 +18,7 @@
     <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Search by Name" />
     <br />
     <br />
-    <asp:ListBox ID="ListBox1" runat="server" Height="121px" Width="364px"></asp:ListBox>
+    <asp:ListBox ID="ListBox1" runat="server" Height="121px" Width="1035px"></asp:ListBox>
     <br />
     <br />
 <br />

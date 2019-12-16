@@ -13,24 +13,26 @@ namespace HospitalSystem
         {
             if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
 
+            Patient curentuser = AppointmentManager.GetPatientByUserName(Session["user"].ToString());
+
             HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
-            var medications = from data in dbcontext.MedicationLists
-                              where data.PatientID.Equals(App)
-                              select data;
+            var medications = (from data in dbcontext.MedicationLists
+                              where data.PatientID.ToString().Equals(curentuser.PatientID.ToString())
+                              select data).ToList();
 
             foreach (MedicationList med in medications)
             {
-                ListBox1.Items.Add(med.ToString());
+                ListBox1.Items.Add(med.Description.ToString());
             }
 
-            var testresults = from data in dbcontext.MedicationLists
-                              where data.PatientID.Equals(1)
-                              select data;
+            var testresults = (from data in dbcontext.Tests
+                              where data.PatientID.ToString().Equals(curentuser.PatientID.ToString())
+                              select data).ToList();
 
-            foreach (MedicationList test in testresults)
+            foreach (Test test in testresults)
             {
-                ListBox2.Items.Add(testresults.ToString());
+                ListBox2.Items.Add(test.TestResults.ToString());
             }
         }
     }

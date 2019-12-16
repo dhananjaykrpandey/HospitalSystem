@@ -3,11 +3,11 @@
     <p>
         Medications:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-        <asp:ListBox ID="ListBox1" runat="server" Height="113px" Width="291px"></asp:ListBox>
+        <asp:ListBox ID="ListBox1" runat="server" Height="113px" Width="815px"></asp:ListBox>
     </p>
     <p>
         Tests:</p>
     <p>
-        <asp:ListBox ID="ListBox2" runat="server" Height="111px" Width="284px"></asp:ListBox>
+        <asp:ListBox ID="ListBox2" runat="server" Height="111px" Width="812px"></asp:ListBox>
     </p>
 </asp:Content>
