@@ -12,7 +12,7 @@ namespace HospitalSystem.XPatients.Appointments
 
         private int getPatientID()
         {
-            return 1;
+            return AppointmentManager.GetPatientByUserName(Session["user"].ToString()).PatientID;
         }
 
         private void displayAppointments()
@@ -35,6 +35,8 @@ namespace HospitalSystem.XPatients.Appointments
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
+
             displayAppointments();
         }
 

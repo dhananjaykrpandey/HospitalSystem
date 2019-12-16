@@ -9,10 +9,9 @@ namespace HospitalSystem.XDoctors.Appointments
 {
     public partial class delete : System.Web.UI.Page
     {
-
         private int getDoctorID()
         {
-            return 8;
+            return AppointmentManager.GetDoctorByUserName(Session["user"].ToString()).DoctorID;
         }
 
         private void displayAppointments()
@@ -35,6 +34,8 @@ namespace HospitalSystem.XDoctors.Appointments
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
+
             displayAppointments();
         }
 

@@ -14,6 +14,6 @@
         <asp:Button ID="ButtonDeleteAppointment" runat="server" OnClick="ButtonDeleteAppointment_Click" Text="Cancel Selected Appointment" />
     </p>
     <p>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Doctor/DoctorAppointments.aspx">Back to Appointment Management</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/PatientAppointments.aspx">Back to Appointment Management</asp:HyperLink>
     </p>
 </asp:Content>

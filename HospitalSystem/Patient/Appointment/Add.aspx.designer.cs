@@ -13,6 +13,15 @@ namespace HospitalSystem.XPatients.Appointments {
     public partial class add {
         
         /// <summary>
+        /// CalendarAppointmentDateSelector control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar CalendarAppointmentDateSelector;
+        
+        /// <summary>
         /// DropDownListPatients control.
         /// </summary>
         /// <remarks>
@@ -22,15 +31,6 @@ namespace HospitalSystem.XPatients.Appointments {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListPatients;
         
         /// <summary>
-        /// LabelPatientSelected control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPatientSelected;
-        
-        /// <summary>
         /// TextBoxDepartment control.
         /// </summary>
         /// <remarks>
@@ -38,15 +38,6 @@ namespace HospitalSystem.XPatients.Appointments {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxDepartment;
-        
-        /// <summary>
-        /// CalendarAppointmentDateSelector control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendarAppointmentDateSelector;
         
         /// <summary>
         /// DropDownListTimeHour control.

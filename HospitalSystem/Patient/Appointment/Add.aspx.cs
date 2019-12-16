@@ -22,7 +22,7 @@ namespace HospitalSystem.XPatients.Appointments
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelPatientSelected.Text = "" + DropDownListPatients.SelectedIndex;
+            if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
 
             DropDownListPatients.Items.Clear();
 
@@ -42,16 +42,10 @@ namespace HospitalSystem.XPatients.Appointments
                 );
             }
         }
-
-        private Tuple<string, string> getPatientName()
+        
+        private int getPatientID()
         {
-            //string fullname = Session["UserLoginName"].ToString();
-            string fullname = "Maya Moore";
-
-            string first = fullname.Split(' ')[0];
-            string last = fullname.Split(' ')[1];
-
-            return new Tuple<string, string>(first, last);
+            return AppointmentManager.GetPatientByUserName(Session["user"].ToString()).PatientID;
         }
 
         private DateTime getRequestedAppointmentTime()
@@ -77,8 +71,8 @@ namespace HospitalSystem.XPatients.Appointments
             DateTime date = getRequestedAppointmentTime();
 
             AppointmentInfo appointment = new AppointmentInfo(
-                TextBoxDepartment.Text, 
-                AppointmentManager.GetPatientID(getPatientName().Item1, getPatientName().Item2),
+                TextBoxDepartment.Text,
+                getPatientID(),
                 doctor.DoctorID,
                 date,
                 TextBoxPurpose.Text

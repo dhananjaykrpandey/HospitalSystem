@@ -4,22 +4,18 @@
         <br />
         Add Appointment</h2>
     <p>
-        Doctor</p>
+        Date:</p>
     <p>
+        <asp:Calendar ID="CalendarAppointmentDateSelector" runat="server"></asp:Calendar>
+    </p>
+    <p>
+        Doctor:
         <asp:DropDownList ID="DropDownListPatients" runat="server">
         </asp:DropDownList>
     </p>
     <p>
-        <asp:Label ID="LabelPatientSelected" runat="server" Text="Please select a doctor."></asp:Label>
-    </p>
-    <p>
         Department:
         <asp:TextBox ID="TextBoxDepartment" runat="server"></asp:TextBox>
-    </p>
-    <p>
-        Date:</p>
-    <p>
-        <asp:Calendar ID="CalendarAppointmentDateSelector" runat="server"></asp:Calendar>
     </p>
     <p>
         Time:</p>
@@ -59,6 +55,6 @@
         <asp:Button ID="ButtonAddAppointment" runat="server" OnClick="ButtonAddAppointment_Click" Text="Add Appointment" />
     </p>
     <p>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Doctor/DoctorAppointments.aspx">Back to Appointment Management</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/PatientAppointments.aspx">Back to Appointment Management</asp:HyperLink>
     </p>
 </asp:Content>
