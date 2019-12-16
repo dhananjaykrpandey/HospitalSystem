@@ -13,10 +13,10 @@ namespace HospitalSystem
         {
             if (Session["user"] == null) Response.Redirect("~/Logon.aspx");
 
-            HospitalSystemEntities dbcontext = new HospitalSystemEntities();
+            HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
             var medications = from data in dbcontext.MedicationLists
-                              where data.PatientID.Equals(1)
+                              where data.PatientID.Equals(App)
                               select data;
 
             foreach (MedicationList med in medications)
@@ -30,7 +30,7 @@ namespace HospitalSystem
 
             foreach (MedicationList test in testresults)
             {
-                ListBox1.Items.Add(testresults.ToString());
+                ListBox2.Items.Add(testresults.ToString());
             }
         }
     }

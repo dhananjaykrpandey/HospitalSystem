@@ -15,7 +15,7 @@
     Last Name:
     <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
     <br />
-    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Button" />
+    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Search by Name" />
     <br />
     <br />
     <asp:ListBox ID="ListBox1" runat="server" Height="121px" Width="364px"></asp:ListBox>

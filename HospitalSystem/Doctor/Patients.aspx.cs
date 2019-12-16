@@ -16,7 +16,7 @@ namespace HospitalSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            HospitalSystemEntities dbcontext = new HospitalSystemEntities();
+            HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
             var patients = from data in dbcontext.Patients
                              where data.DoctorID.Equals("$$$")
@@ -30,7 +30,7 @@ namespace HospitalSystem
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            HospitalSystemEntities dbcontext = new HospitalSystemEntities();
+            HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
             var patients = from data in dbcontext.Patients
                            where data.DoctorID.Equals("$$$")
@@ -45,7 +45,7 @@ namespace HospitalSystem
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            HospitalSystemEntities dbcontext = new HospitalSystemEntities();
+            HospitalSystemEntities1 dbcontext = new HospitalSystemEntities1();
 
             var patients = from data in dbcontext.Patients
                            where data.DoctorID.Equals("$$$") &&
