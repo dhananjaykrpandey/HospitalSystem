@@ -118,6 +118,13 @@
     <Content Include="Doctor\DoctorMessages.aspx" />
     <Content Include="Doctor\DoctorHome.aspx" />
     <Content Include="Doctor\DoctorMedications.aspx" />
+    <Content Include="App_Data\ImageTable.mdf" />
+    <Content Include="App_Data\ImageTable_log.ldf">
+      <DependentUpon>ImageTable.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Patient.jpg" />
+    <Content Include="DoctorMessages.aspx" />
+    <Content Include="PatientMessages.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs">
@@ -283,6 +290,35 @@
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorMessages.aspx.cs">
+      <DependentUpon>DoctorMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorMessages.aspx.designer.cs">
+      <DependentUpon>DoctorMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Messaging.cs" />
+    <Compile Include="PatientMedications.aspx.cs">
+      <DependentUpon>PatientMedications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientMedications.aspx.designer.cs">
+      <DependentUpon>PatientMedications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientMessages.aspx.cs">
+      <DependentUpon>PatientMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientMessages.aspx.designer.cs">
+      <DependentUpon>PatientMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientHome.aspx.cs">
+      <DependentUpon>PatientHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientHome.aspx.designer.cs">
+      <DependentUpon>PatientHome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
