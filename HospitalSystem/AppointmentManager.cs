@@ -55,7 +55,7 @@ namespace HospitalSystem
 
             List<HospitalSystem.Appointment> appointments =
                 (from appt in entities.Appointments
-                where (appt.DoctorID == appointment.DoctorID) && (appt.Time != appointment.TimeSlot)
+                where (appt.DoctorID == appointment.DoctorID) && (appt.Time == appointment.TimeSlot)
                 select appt).ToList();
 
             return appointments.Count == 0;

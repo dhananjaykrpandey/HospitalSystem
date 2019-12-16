@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Patients.Master" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="HospitalSystem.XPatients.Appointments.view" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctors.Master" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="HospitalSystem.XPatients.Appointments.view" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         <br />

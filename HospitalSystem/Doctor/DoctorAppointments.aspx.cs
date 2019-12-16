@@ -11,7 +11,7 @@ namespace HospitalSystem
     {
         private int getDoctorID()
         {
-            return 1;
+            return 8;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace HospitalSystem
 
             foreach (Appointment appointment in appointments)
             {
-                ListBoxAppointments.Items.Add(appointment.ToString());
+                ListBoxAppointments.Items.Add(appointment.Date + " with " + appointment.Patient.FirstName + " " + appointment.Patient.LastName);
             }
         }
     }

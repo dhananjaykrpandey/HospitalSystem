@@ -62,8 +62,8 @@ namespace HospitalSystem.XDoctors.Appointments
             int minute = Convert.ToInt32(DropDownListTimeMinute.SelectedValue);
 
             DateTime date = CalendarAppointmentDateSelector.SelectedDate;
-            date = date.AddHours(hour);
-            date = date.AddMinutes(minute);
+            TimeSpan ts = new TimeSpan(hour, minute, 0);
+            date = date + ts;
 
             return date;
         }
@@ -79,7 +79,8 @@ namespace HospitalSystem.XDoctors.Appointments
             AppointmentInfo appointment = new AppointmentInfo(
                 TextBoxDepartment.Text, 
                 patient.PatientID, 
-                AppointmentManager.GetDoctorID(getDoctorName().Item1, getDoctorName().Item2),
+                //AppointmentManager.GetDoctorID(getDoctorName().Item1, getDoctorName().Item2),
+                8,
                 date,
                 TextBoxPurpose.Text
             );

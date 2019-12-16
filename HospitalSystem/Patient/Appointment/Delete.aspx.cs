@@ -10,21 +10,49 @@ namespace HospitalSystem.XPatients.Appointments
     public partial class delete : System.Web.UI.Page
     {
 
-        protected void Page_Load(object sender, EventArgs e)
+        private int getPatientID()
         {
-            int patientID = 0;
+            return 1;
+        }
 
-            List<Appointment> appointments = AppointmentManager.GetPatientAppointments(patientID);
+        private void displayAppointments()
+        {
+            DropDownListAppointments.Items.Clear();
+
+            List<Appointment> appointments = AppointmentManager.GetPatientAppointments(getPatientID());
+
+            if (appointments.Count < 1)
+            {
+                DropDownListAppointments.Items.Add("You do not currently have any appointments");
+                return;
+            }
 
             foreach (Appointment appointment in appointments)
             {
-                ListBoxAppointments.Items.Add(appointment.ToString());
+                DropDownListAppointments.Items.Add(appointment.Date + " with " + appointment.Patient.FirstName + " " + appointment.Patient.LastName);
             }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            displayAppointments();
         }
 
         protected void ButtonDeleteAppointment_Click(object sender, EventArgs e)
         {
+            List<Appointment> appointments = AppointmentManager.GetPatientAppointments(getPatientID());
 
+            Appointment selectedAppointment = appointments[DropDownListAppointments.SelectedIndex];
+
+            if(AppointmentManager.DeleteAppointment(selectedAppointment.AppointmentID))
+            {
+                LabelDeleteStatus.Text = "The selected appointment has been cancelled.";
+            } else
+            {
+                LabelDeleteStatus.Text = "We were unable to cancel the selected appointment, please try again later.";
+            }
+
+            displayAppointments();
         }
     }
 }

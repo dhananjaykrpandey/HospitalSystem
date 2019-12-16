@@ -12,14 +12,20 @@ namespace HospitalSystem.XDoctors.Appointments
 
         private int getDoctorID()
         {
-            return 1;
+            return 8;
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        private void displayAppointments()
         {
             DropDownListAppointments.Items.Clear();
 
             List<Appointment> appointments = AppointmentManager.GetDoctorAppointments(getDoctorID());
+
+            if (appointments.Count < 1)
+            {
+                DropDownListAppointments.Items.Add("You do not currently have any appointments");
+                return;
+            }
 
             foreach (Appointment appointment in appointments)
             {
@@ -27,9 +33,16 @@ namespace HospitalSystem.XDoctors.Appointments
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            displayAppointments();
+        }
+
         protected void ButtonDeleteAppointment_Click(object sender, EventArgs e)
         {
             List<Appointment> appointments = AppointmentManager.GetDoctorAppointments(getDoctorID());
+
+            if (appointments.Count < 1) return;
 
             Appointment selectedAppointment = appointments[DropDownListAppointments.SelectedIndex];
 
@@ -40,6 +53,8 @@ namespace HospitalSystem.XDoctors.Appointments
             {
                 LabelDeleteStatus.Text = "We were unable to cancel the selected appointment, please try again later.";
             }
+
+            displayAppointments();
         }
     }
 }

@@ -1,15 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Patients.Master" AutoEventWireup="true" CodeBehind="Delete.aspx.cs" Inherits="HospitalSystem.XPatients.Appointments.delete" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctors.Master" AutoEventWireup="true" CodeBehind="Delete.aspx.cs" Inherits="HospitalSystem.XPatients.Appointments.delete" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         <br />
-        Delete Appointment</h2>
+        Cancel Appointment</h2>
     <p>
-        <asp:ListBox ID="ListBoxAppointments" runat="server"></asp:ListBox>
+        <asp:DropDownList ID="DropDownListAppointments" runat="server">
+        </asp:DropDownList>
     </p>
     <p>
-        <asp:Button ID="ButtonDeleteAppointment" runat="server" OnClick="ButtonDeleteAppointment_Click" Text="Delete Selected Appointment" />
+        <asp:Label ID="LabelDeleteStatus" runat="server"></asp:Label>
     </p>
     <p>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/appointment.aspx">Back to Appointment Management</asp:HyperLink>
+        <asp:Button ID="ButtonDeleteAppointment" runat="server" OnClick="ButtonDeleteAppointment_Click" Text="Cancel Selected Appointment" />
+    </p>
+    <p>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Doctor/DoctorAppointments.aspx">Back to Appointment Management</asp:HyperLink>
     </p>
 </asp:Content>
