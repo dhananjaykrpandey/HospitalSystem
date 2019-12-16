@@ -27,7 +27,7 @@
                         <li class="scroll active"><a href="DoctorHome.aspx">Home</a></li>
                         <li class="scroll"><a href="DoctorAppointments.aspx">Appointments</a></li>
                         <li class="scroll"><a href="DoctorMessages.aspx">Messages</a></li>
-                        <li class="scroll"><a href="DoctorMedications.aspx">Medications</a></li>                      
+                        <li class="scroll"><a href="DoctorMedications.aspx">Patients</a></li>                      
                     </ul>
                 </div>
             </div>

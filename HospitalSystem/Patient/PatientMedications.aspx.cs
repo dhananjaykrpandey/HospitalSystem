@@ -21,6 +21,15 @@ namespace HospitalSystem
             {
                 ListBox1.Items.Add(med.ToString());
             }
+
+            var testresults = from data in dbcontext.MedicationLists
+                              where data.PatientID.Equals(1)
+                              select data;
+
+            foreach (MedicationList test in testresults)
+            {
+                ListBox1.Items.Add(testresults.ToString());
+            }
         }
     }
 }

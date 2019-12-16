@@ -117,7 +117,7 @@
     <Content Include="Doctor\DoctorAppointments.aspx" />
     <Content Include="Doctor\DoctorMessages.aspx" />
     <Content Include="Doctor\DoctorHome.aspx" />
-    <Content Include="Doctor\DoctorMedications.aspx" />
+    <Content Include="Doctor\Patients.aspx" />
     <Content Include="App_Data\ImageTable.mdf" />
     <Content Include="App_Data\ImageTable_log.ldf">
       <DependentUpon>ImageTable.mdf</DependentUpon>
@@ -278,12 +278,12 @@
     <Compile Include="Doctor\DoctorHome.aspx.designer.cs">
       <DependentUpon>DoctorHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Doctor\DoctorMedications.aspx.cs">
-      <DependentUpon>DoctorMedications.aspx</DependentUpon>
+    <Compile Include="Doctor\Patients.aspx.cs">
+      <DependentUpon>Patients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Doctor\DoctorMedications.aspx.designer.cs">
-      <DependentUpon>DoctorMedications.aspx</DependentUpon>
+    <Compile Include="Doctor\Patients.aspx.designer.cs">
+      <DependentUpon>Patients.aspx</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
       <DependentUpon>Model1.tt</DependentUpon>
